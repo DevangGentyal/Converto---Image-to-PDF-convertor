@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Converto</title>
+    <link rel="shortcut icon" href="images/logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scaler=1.0">
+    <script>
+        function showchoose() {
+            document.getElementsByClassName("input_buttons").style.display = "none";
+            document.getElementById('choose').style.display = "block";
+        }
+        function showconvert() {
+            document.getElementById("choose").style.display = 'none';
+            let download = document.getElementById('submit');
+            download.style.display = 'block';
+        }
+        function showdownload() {
+            const fileUpload = document.getElementById('file');
+            const files = fileUpload.files;
+            if (files.length > 10) {
+                alert("Only 10 images are allowed!");
+
+            }
+            else {
+                document.getElementById('submit').style.display = 'none';
+                document.getElementById('bar').style.display = 'block';
+
+                var i = 1;
+                setInterval(function () {
+                    if (i == 3) {
+                        document.getElementById('bar').style.display = 'none';
+                        let download = document.getElementById("download");
+                        download.style.display = 'block';
+                    }
+                    i += 1;
+                }, 1000);
+            }
+        }
+    </script>
+
+</head>
+
+
+<body>
+    <div id="loader"><img src="images/Converto.gif" ></div>
+   
+    <div class="nav_cont">
+        <span><a href=""><img src="images/convertoLogo.png" alt=""></a></span>
+        <ul class="nav_list">
+            <li><a href="">Account </a></li>
+            <li><a href="aboutus.html">About Us </a></li>
+        </ul>
+    </div>
+    <div class="input_cont">
+        <!-- Main Form -->
+        <form action="action.php" method="post" enctype="multipart/form-data">
+            <input type="file" onchange="showconvert()" id="file" name="file[]" accept="image/*" multiple>
+            <span><img id="bar" src="images/loader1.gif" alt=""></span>
+            <label for="file" id="choose">CHOOSE FILES</label>
+            <input type="button" class="input_buttons" onclick="showdownload()" id='submit' value="Convert">
+            <input type="submit" onclick="showchoose()" class="input_buttons" id="download" name="download"
+                value="Download">
+            <br><span>NOTE: You can only upload 10 images!</span>
+        </form>
+
+    </div>
+    <div class="desc_cont" id="desc_cont">
+        <div class="desc_div">
+            <img id="howtouse_svg" src="https://s.smallpdf.com/static/7ca27d0428c9614899dc.svg" alt="How to use?">
+            <div class="desc_head" id="howtouse_head">How to use?</div>
+            <div class="desc_body" id="howtouse_body">Choose your file into the toolbox above to begin.For now only image files will convert to PDF format. Use image ratio upto 1200x1600 or 1200x900 pixels for perfect view in PDF.</div>
+        </div>
+        <div class="desc_div">
+            <img id="speed_svg" src="https://s.smallpdf.com/static/0b1d8a20e389c1be66e8.svg" alt="Speed">
+            <div class="desc_head" id="speed_head">Speed</div>
+            <div class="desc_body" id="speed_body">Our tool provides fastest speed for conversion of images to PDF. The download speed is also instant.</div>
+        </div>
+        <div class="desc_div">
+            <img id="security_svg" src="https://s.smallpdf.com/static/2e2d4d86b07e272f0e17.svg" alt="Security">
+            <div class="desc_head" id="security_head">Security</div>
+            <div class="desc_body" id="security_body">Your security is our priority. All our file transfers are secured with an advanced level of SSL encryption. Additionally, we destroy all files automatically from our servers.</div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content" >
+            <p>&copy; 2023 Converto Company</p>
+            <ul class="footer-links">
+                <li><a href="terms.html">Terms and Conditions</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+<script>
+    window.addEventListener("load", function () {
+        document.getElementById("loader").style.visibility = "hidden";
+    });
+</script>
+
+</html>

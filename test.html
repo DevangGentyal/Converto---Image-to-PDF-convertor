@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="myForm" action=".php" method="post">
+        <label for="password1">Password:</label>
+        <input type="password" name="password1" id="password1">
+
+        <label for="password2">Confirm Password:</label>
+        <input type="password" name="password2" id="password2">
+
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            // Get the password fields
+            var password1 = document.getElementById("password1");
+            var password2 = document.getElementById("password2");
+
+            // Check if the passwords match
+            if (password1.value != password2.value) {
+                // If the passwords don't match, display an error message
+                alert("Passwords don't match");
+            } else {
+                // If the passwords match, submit the form
+                document.getElementById("myForm").submit();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
